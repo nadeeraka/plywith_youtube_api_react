@@ -1,25 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import searchYoutube from "youtube-api-v3-search";
+
+import Title from "./components/title";
+import SerchBar from "./components/serchbar";
+import API_KEY from "../src/secret/api";
 
 class App extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.formData = this.formData.bind(this);
+  // }
+  state = {
+    vedios: []
+  };
+
+  formData = async e => {
+    e.preventDefault();
+    const searchTerm = e.target.elements.data.value.trim();
+    console.log(searchTerm);
+    const options = {
+      q: searchTerm,
+      part: "snippet",
+      type: "video"
+    };
+
+    let result = await searchYoutube(API_KEY, options);
+    console.log(result.items);
+    if (result.items) {
+      this.setState(() => ({ vedios: result }));
+    } else {
+      alert("Somthing went wrong");
+    }
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Title />
+        <SerchBar formData={this.formData} />
       </div>
     );
   }
