@@ -4,6 +4,7 @@ import searchYoutube from "youtube-api-v3-search";
 import Title from "./components/title";
 import SerchBar from "./components/serchbar";
 import API_KEY from "../src/secret/api";
+import VedioList from "./components/vediolist";
 
 class App extends Component {
   // constructor(props) {
@@ -38,6 +39,7 @@ class App extends Component {
       <div>
         <Title />
         <SerchBar formData={this.formData} />
+        <VedioList data={this.state.vedios} />
       </div>
     );
   }
