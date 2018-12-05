@@ -8,10 +8,6 @@ import VedioList from "./components/vediolist";
 import OpModal from "./components/modal";
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.formData = this.formData.bind(this);
-  // }
   state = {
     vedios: [],
     error: false
