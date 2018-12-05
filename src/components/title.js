@@ -2,9 +2,13 @@ import React, { Component } from "react";
 
 const Title = () => {
   return (
-    <div>
-      <h1>I-Youtube</h1>
-      <h2>The vedio site</h2>
+    <div className="db">
+      <h4 className="text-center ">
+        <span>
+          <h1>YouTv</h1>
+        </span>
+      </h4>
+      <h2 className="text-center ">The vedio site</h2>
     </div>
   );
 };

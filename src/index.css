@@ -12,3 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.pad {
+  padding-left: 530px;
+}
+.db {
+  padding-bottom: 50px;
+}

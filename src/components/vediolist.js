@@ -1,13 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import Vedio from "./vedio";
 import uuid from "uuid";
 
-//{props.data && props.data.map(r => <Vedio key={uuid()} data={props.data[r]} />)}
 const VedioList = props => (
   <div>
-    <ul>
-      {props.data && props.data.map(r => <Vedio key={uuid()} data={r} />)}
-    </ul>
+    {props.data && (
+      <ul className="col-md-4 list group">
+        {props.data.map(r => (
+          <div>
+            {" "}
+            <Vedio key={uuid()} data={r} />
+            <p>Vedio Details</p>
+          </div>
+        ))}
+      </ul>
+    )}
   </div>
 );
 
