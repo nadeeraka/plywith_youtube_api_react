@@ -26,9 +26,9 @@ class App extends Component {
     };
 
     let result = await searchYoutube(API_KEY, options);
-    console.log(result.items);
+    console.log(result);
     if (result.items) {
-      this.setState(() => ({ vedios: result }));
+      this.setState(() => ({ vedios: result.items }));
     } else {
       alert("Somthing went wrong");
     }

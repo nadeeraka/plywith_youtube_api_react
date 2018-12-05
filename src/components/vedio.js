@@ -1,5 +1,13 @@
 import React, { Component } from "react";
+import uuid from "uuid";
 
-const Vedio = props => <div>ll</div>;
+const Vedio = props => (
+  <div>
+    <li>
+      <p>{props.data && props.data.snippet.title}</p>
+      <img src={props.data.snippet.thumbnails.medium.url} alt="" />
+    </li>
+  </div>
+);
 
 export default Vedio;
