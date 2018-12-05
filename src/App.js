@@ -5,6 +5,7 @@ import Title from "./components/title";
 import SerchBar from "./components/serchbar";
 import API_KEY from "../src/secret/api";
 import VedioList from "./components/vediolist";
+import OpModal from "./components/modal";
 
 class App extends Component {
   // constructor(props) {
@@ -12,25 +13,30 @@ class App extends Component {
   //   this.formData = this.formData.bind(this);
   // }
   state = {
-    vedios: []
+    vedios: [],
+    error: false
   };
 
   formData = async e => {
     e.preventDefault();
     const searchTerm = e.target.elements.data.value.trim();
     console.log(searchTerm);
-    const options = {
-      q: searchTerm,
-      part: "snippet",
-      type: "video"
-    };
+    if (searchTerm) {
+      const options = {
+        q: searchTerm,
+        part: "snippet",
+        type: "video"
+      };
 
-    let result = await searchYoutube(API_KEY, options);
-    console.log(result);
-    if (result.items) {
-      this.setState(() => ({ vedios: result.items }));
+      let result = await searchYoutube(API_KEY, options);
+      console.log(result);
+      if (result.items) {
+        this.setState(() => ({ vedios: result.items }));
+      } else {
+        alert("Somthing went wrong");
+      }
     } else {
-      alert("Somthing went wrong");
+      alert("error");
     }
   };
 
@@ -40,6 +46,7 @@ class App extends Component {
         <Title />
         <SerchBar formData={this.formData} />
         <VedioList data={this.state.vedios} />
+        <OpModal />
       </div>
     );
   }

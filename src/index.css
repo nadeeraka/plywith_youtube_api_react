@@ -28,3 +28,6 @@ code {
 .g {
   list-style: none;
 }
+.read {
+  color: red;
+}
