@@ -1,24 +1,16 @@
 import React from "react";
-// <div class="card" style="width: 18rem;">
-//   <img class="card-img-top" src="..." alt="Card image cap">
-//     <div class="card-body">
-//       <h5 class="card-title">Card title</h5>
-//       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//       <a href="#" class="btn btn-primary">Go somewhere</a>
-//     </div>
-// </div>
 const Vedio = props => (
   <div className="card">
     <li>
-      <h4 className="card-title title">
+      <h4 className="card-title">
         Title {props.data && props.data.snippet.title}
       </h4>
 
-      <a href={`watch?v=${props.data.id.videoId}`}>
+      <a href={`https://www.ssyoutube.com/watch?v=${props.data.id.videoId}`}>
         {" "}
         <img
           className="card-img-top"
-          src={props.data.snippet.thumbnails.medium.url}
+          src={props.data.snippet.thumbnails.default.url}
           alt=""
         />
       </a>

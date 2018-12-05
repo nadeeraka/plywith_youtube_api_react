@@ -5,10 +5,10 @@ const Title = () => {
     <div className="db">
       <h4 className="text-center ">
         <span>
-          <h1 className="title">YouTv</h1>
+          <h1 className="title">YouTube Downloader</h1>
         </span>
       </h4>
-      <h2 className="text-center sub">The vedio site</h2>
+      <h2 className="text-center sub">The video Download site</h2>
     </div>
   );
 };
