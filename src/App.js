@@ -36,8 +36,11 @@ class App extends Component {
         alert("Somthing went wrong");
       }
     } else {
-      alert("error");
+      this.setState(() => ({ error: true }));
     }
+  };
+  off = () => {
+    this.setState(() => ({ error: false }));
   };
 
   render() {
@@ -46,7 +49,7 @@ class App extends Component {
         <Title />
         <SerchBar formData={this.formData} />
         <VedioList data={this.state.vedios} />
-        <OpModal />
+        <OpModal onModal={this.state.error} off={this.off} />
       </div>
     );
   }

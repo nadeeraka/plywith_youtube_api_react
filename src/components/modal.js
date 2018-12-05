@@ -15,13 +15,18 @@ const customStyles = {
 const OpModal = props => (
   <div>
     <Modal
-      isOpen={true}
-      onRequestClose
+      isOpen={props.onModal}
+      onRequestClose={props.off}
       style={customStyles}
       contentLabel="Example Modal"
     >
       <h4 className="mb-4 read">Type what you want to search</h4>
-      <button className="btn btn-danger btn-lg btn-block mb-4">Ok</button>
+      <button
+        onClick={props.off}
+        className="btn btn-danger btn-lg btn-block mb-4"
+      >
+        Ok
+      </button>
     </Modal>
   </div>
 );
