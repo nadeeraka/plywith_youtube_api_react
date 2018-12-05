@@ -5,14 +5,18 @@ import uuid from "uuid";
 const VedioList = props => (
   <div>
     {props.data && (
-      <ul className="col-md-4 list group">
-        {props.data.map(r => (
-          <div>
+      <ul className="col-md-4 list group g">
+        <div className="vedio-list media">
+          <div className="media-left">
             {" "}
-            <Vedio key={uuid()} data={r} />
-            <p>Vedio Details</p>
+            {props.data.map(r => (
+              <div key={uuid()}>
+                {" "}
+                <Vedio key={uuid()} data={r} />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </ul>
     )}
   </div>
